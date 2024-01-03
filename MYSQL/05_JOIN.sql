@@ -335,6 +335,15 @@ FROM employee
         JOIN job USING(job_code)
         JOIN national USING (national_code)
 	WHERE National_name IN ('일본','한국'); 
+ -- WHERE 구문   
+
+
+SELECT emp_id,emp_name,dept_title,job_name,local_name,national_name
+FROM employee,department,location l,national n
+WHERE dept_code = dept_id
+	AND location_id=local_code
+    AND l.location_code = n.national_code
+   AND  national_name  IN ('일본','한국'); 
 
 -- 5. 각 부서별 평균 급여를 조회하여 부서명,평균급여(format 사용)를 조회
 --    단, 부서 코드가 없는 사원들의 평균도 같이 나오게끔! OUTER JOIN 조회 
@@ -349,11 +358,15 @@ GROUP BY dept_code;
 SELECT dept_title, sum(salary)
 FROM employee
 LEFT JOIN department on (dept_code = dept_id)
-GROUP BY  location_id
+GROUP BY  dept_title
 HAVING sum(salary) >= 10000000;
 
-SELECT * 
-FROM department;
+SELECT dept_title,sum(salary)
+FROM employee,department
+WHERE dept_code=dept_id
+GROUP BY dept_title
+HAVING sum(salary) >= 10000000;
+
 
 -- 7. 사번,직원명,직급명,급여 등급,구분을 조회 
 -- 이때 구분에 해당하는 값은 아래와 같이 조회 되도록! 
@@ -369,6 +382,7 @@ FROM employee
 		JOIN department on (dept_code = dept_id)
         JOIN job USING(job_code)
 		JOIN sal_grade ON ( salary BETWEEN  min_sal AND max_sal);
+	
 -- 8. 보너스를 받지 않은 직원들 중 직급 코드가 J4 또는 J7인 직원들의 직원명, 직급명,급여를 조회 
 SELECT emp_name,dept_title,salary,bonus,job_code
 FROM employee 
@@ -381,7 +395,6 @@ FROM employee
 	JOIN department on (dept_code = dept_id)
         JOIN location ON  (location_id=local_code)
         JOIN job USING(job_code);
-
 -- 10. 해외영업팀에 근무하는 직원들의 직원명,직급명,부서코드,부서명을 조회 
 SELECT emp_name,job_name,dept_code,dept_title
 FROM employee
@@ -395,4 +408,4 @@ SELECT emp_id,emp_name,dept_title,job_name
 FROM employee
 	JOIN department on (dept_code = dept_id)
         JOIN job USING(job_code)
-WHERE emp_name LIKE '%형%';
+WHERE emp_name LIKE '%형%'; 

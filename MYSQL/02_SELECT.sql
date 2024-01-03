@@ -346,4 +346,4 @@ FROM employee
 ORDER BY salary DESC
 LIMIT 10 OFFSET 5; 
 
-
+-- DML (Data MANipulation Language) :
