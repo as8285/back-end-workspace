@@ -37,33 +37,42 @@ JOIN film USING(film_id)
 WHERE title='NOON PAPI' ;
 -- 4. 각 카테고리별 이메일이 JOYCE.EDWARDS@sakilacustomer.org인 고객이 빌린 DVD 대여 수 조회
  -- rental, customer, inventory, film_category, category
-SELECT * FROM  rental; -- rental_id ,inventory_id,customer_id (film_id,category_id)
-SELECT * FROM  customer; -- customer_id
-SELECT * FROM   inventory; -- inventory_id,film_id (category_id)
-SELECT * FROM   film; -- film_id
-SELECT * FROM   film_category; -- film_id.category_Id
-SELECT * FROM   category; -- category_id
+SELECT * FROM  rental; 
+-- rental_id = 1~ ,inventory_id=367~,customer_id=130~
+SELECT * FROM  customer; 
+-- customer_id = 1~ 
+SELECT * FROM   inventory; 
+-- inventory_id=1~,film_id=11111~22222
+SELECT * FROM   film;
+ -- film_id = 1~ 
+SELECT * FROM   film_category;
+ -- film_id=1~ category_id=6~11 
+SELECT * FROM   category; 
+-- category_id = 1~ name:1~16
 -- rental, customer, inventory, film_category, category
-SELECT name,rental_date
+
+-- 4. 각 카테고리별 이메일이 JOYCE.EDWARDS@sakilacustomer.org인 고객이 빌린 DVD 대여 수 조회
+ -- rental, customer, inventory, film_category, category
+ 
+SELECT name category ,customer_id-- count(customer_id) count
 FROM category
-JOIN film ON (film_id=customer_id)
-JOIN customer USING;
-
-
-
-
-
-
+JOIN film_category USING (category_id)
+JOIN inventory USING (film_id)
+JOIN rental USING (inventory_id)
+JOIN customer USING (customer_id)
+WHERE email='JOYCE.EDWARDS@sakilacustomer.org';
+-- GROUP BY name;
 -- categoryId - 16까지 임
 -- JOYCE customer_id : 49 store_Id=2 active=1
  SELECT count(rental_date)
  FROM rental
- GROUP BY rental_date;
+ GROUP BY rental_date; 
 -- 5. 이메일이 JOYCE.EDWARDS@sakilacustomer.org인 고객이 가장 최근에 빌린 영화 제목과 영화 내용을 조회
-SELECT title,description,email
-FROM film
-JOIN customer ON (customer_id=film_id)
-JOIN rental ON (rental_id=film_id)
-JOIN film
-WHERE email= 'JOYCE.EDWARDS@sakilacustomer.org'
-;
+-- rental,inventory,film,customer
+SELECT name category,distriction,rental_date
+FROM category
+JOIN film_category USING (category_id)
+JOIN inventory USING (film_id)
+JOIN rental USING (inventory_id)
+JOIN customer USING (customer_id)
+WHERE email='JOYCE.EDWARDS@sakilacustomer.org';

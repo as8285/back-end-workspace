@@ -315,6 +315,22 @@ AND emp_name LIKE '%하%';
 
 - ASC : 오름차순 정렬 (생략시 기본값)
 - DESC : 내림차순 정렬 
+
+- SQL 종류
+     1. DML(Data Manipulation Language) : 데이터 조작어
+        - 실제 데이터를 조작하기 위해 사용하는 언어 
+          (INSERT : 추가, UPDATE : 수정, DELETE : 삭제, SELECT)
+	 2. DQL(Data Query Language) : 데이터 질의어
+        - 데이터를 조회(검색)하기 위해 사용하는 언어 (SELECT : 조회)
+	 3. DCL(Data Control Language) : 데이터 제어어
+        - DBMS에 대한 보안, 무결성, 복구 등 DBMS를 제어하기 위한 언어 
+          (GRANT : 권한 부여, REVOKE : 권한 회수)
+     4. DDL(Data Definition Language) : 데이터 정의어
+        - DBMS의 구조를 정의하거나 변경, 삭제하기 위해 사용하는 언어 
+          (CREATE : 생성, ALTER : 수정, DROP : 삭제) - 테이블 변경과 관련
+      5.TCL(Transation Control Language) : 트랙잭션을 제어하는 언어 
+              (COMMIT:실행 ROLLBACK: 함수)    
+
 */
 -- 전체 사원의 사원명, 보너스 조회 
 SELECT emp_name,bonus
@@ -345,5 +361,3 @@ SELECT emp_name,salary
 FROM employee
 ORDER BY salary DESC
 LIMIT 10 OFFSET 5; 
-
--- DML (Data MANipulation Language) :

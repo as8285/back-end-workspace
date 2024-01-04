@@ -38,6 +38,7 @@
         --> 실제로는 이미지나 동영상은 따로 관리함 
 */
 -- 회원에 대한 데이터를 담을 member 테이블 생성
+DROP TABLE member;
 CREATE TABLE member(
 	mem_no INT,
     mem_id VARCHAR(20),
@@ -56,9 +57,9 @@ SELECT * FROM member;
 
 -- 테이블에 데이터를 추가시키는 구문 (DML : INSERT)
 -- INSERT INTO 테이블명 VALUES(값, 값, ...);
-INSERT INTO member VALUES(1, 'user01', 'pass01', '이상현', '남', '010-0000-0000', 'aaa@naver.com', '2023-11-30');
-INSERT INTO member VALUES(2, 'user02', 'pass02', '이상호', '남', null, NULL, NOW());
-INSERT INTO member VALUES(2, 'user02', 'pass02', '이상호', '남', null, NULL, current_date());
+INSERT INTO member VALUES(1, 'user01', 'pass01', '누룽지', '남', '010-0000-0000', 'aaa@naver.com', '2023-11-30');
+INSERT INTO member VALUES(2, 'user02', 'pass02', '양갱이', '남', null, NULL, NOW());
+INSERT INTO member VALUES(2, 'user02', 'pass02', '백설기', '남', null, NULL, current_date());
 INSERT INTO member VALUES(null, null, null, null, null, null, null, null);
 
 /*
