@@ -1,10 +1,13 @@
+DROP TABLE tb_rent;
+DROP TABLE tb_member;
+DROP TABLE tb_book;
+DROP TABLE tb_publisher;
 -- 실습 문제
 -- 도서관리 프로그램을 만들기 위한 테이블 만들기
 -- 1. 출판사들에 대한 데이터를 담기 위한 출판사 테이블(TB_PUBLISHER)
 --    컬럼 : pub_no(출판사번호) -- 기본 키
 --           pub_name(출판사명) -- NOT NULL
 --           phone(전화번호)
-DROP TABLE TB_PUBLISHER;
 CREATE TABLE TB_PUBLISHER (
 pub_no INT AUTO_INCREMENT PRIMARY KEY,
 pub_name  VARCHAR(30) NOT NULL,
@@ -28,8 +31,9 @@ bk_title VARCHAR(50) NOT NULL,
 bk_author VARCHAR(13) NOT NULL,
 bk_price INT,
 pub_no INT,
-FOREIGN KEY (bk_pub_no)REFERENCES tb_publisher(pub_no) ON DELETE CASCADE
 );
+ALTER TABLE tb_book ADD CONSTRNAINT pub_no_fk
+FOREIGN KEY (pub_no)REFERENCE 
 INSERT INTO tb_book VALUES(1,'오늘부터개발자','김병욱',16800,1);
 INSERT INTO tb_book VALUES(2,'요즘 우아한 개발','우아한 형제들',24000,2);
 INSERT INTO tb_book VALUES(3,'프로덕트 매니저원칙','장홍석',22000,2);
@@ -68,17 +72,23 @@ SELECT * FROM tb_member;
 --           rent_book_no(대여 도서번호) -- 외래 키(tb_book와 참조)
 --           rent_date(대여일) -- 기본값 현재날짜
 --    조건 : 이때 부모 데이터 삭제 시 NULL 값이 되도록 옵션 설정
-DROP TABLE tb_rent;
+
 CREATE TABLE tb_rent(
 rent_no  INT,
 rent_mem_no INT ,
 rent_book_no INT,
 rent_date DATE DEFAULT (current_date()),
 member_no INT,
-bk_no INT 
-FOREIGN KEY (rent_mem_no)REFERENCES tb_member(member_no) ON DELETE SET NULL,
-FOREIGN KEY (rent_book_no)REFERENCES tb_book(bk_no) ON DELETE SET NULL
+bk_no INT,
+rent_date DATE DEFAULT (curent_date())
 );
+-- ALTER로 
+
+ALTER TABLE tb_rent ADD CONSTRAINT member_no_fk
+FOREIGN KEY (member_no)REFERENCES tb_member(member_no);
+ALTER TABLE tb_rent ADD CONSTRAINT bk_no_fk
+FOREIGN KEY (bk_no)REFERENCES tb_book(bk_no);
+
 INSERT INTO tb_rent VALUES(1, 1, 2, default);
 INSERT INTO tb_rent VALUES(2, 1, 3, default);
 INSERT INTO tb_rent VALUES(3, 2, 1, default);
@@ -106,9 +116,9 @@ SELECT*FROM tb_book; -- 325
 DROP TABLE tb_book_copy;
 CREATE TABLE tb_book_copy
 AS SELECT
-       bk_title 책이름,
-        pub_name 출판사명,-- 223rent_date 대여일,
-	    adddate(rent_date,interval 7 day) 반납예정일
+       bk_title "도서명",
+        pub_name "출판사명",-- 223rent_date 대여일,
+	    adddate(rent_date,interval 7 day) "반납예정일"
 FROM sample.tb_book
 JOIN tb_rent ON (rent_book_no=bk_no)
 JOIN tb_publisher ON (pub_no=bk_pub_no)

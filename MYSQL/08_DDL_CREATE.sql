@@ -75,6 +75,7 @@ INSERT INTO member VALUES(null, null, null, null, null, null, null, null);
       (즉, 해당 컬럼에 절대 NULL이 들어와서는 안되는 경우) 
     - 추가/수정시 NULL 값을 허용하지 않도록 제한   
 */
+DROP TABLE mem_notnull;
 CREATE TABLE mem_notnull(
 	mem_no INT NOT NULL,
     mem_id VARCHAR(20) NOT NULL,
