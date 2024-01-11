@@ -267,11 +267,17 @@ DELETE FROM vw_emp_sal
 WHERE 연봉=8400000;
 SELECT* FROM vw_emp_sal;
 ROLLBACK;
-
+category
 
 -- 4. 그룹함수나 GROUP BY 절을 포함한 경우 
 -- 부서별 급여의 합계,평균을 조회한 SELECT문을 vw_groupdept 뷰를 정의 
 CREATE OR REPLACE VIEW vw_groupdept
-AS SELECT emp_name 
-FROM employee;
+AS SELECT dept_code,
+format(sum(salary)),
+format(avg(ifnull(salary,0)))
+FROM employee
+GROUP BY dept_code;
 SELECT* FROM vw_groupdept;
+-- INSET 
+INSERT INTO vw_groupdept
+VALUES('D11',8000000,4000000);
