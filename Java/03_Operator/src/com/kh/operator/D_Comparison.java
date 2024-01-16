@@ -43,7 +43,6 @@ public class D_Comparison {
 		System.out.println("b가 홀수인가?" + (b%2 !=0)); // true 
 	}
 
-
 public void method2() {
 	
 	Scanner sc = new Scanner(System.in); 

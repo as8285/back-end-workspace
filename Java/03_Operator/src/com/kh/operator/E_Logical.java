@@ -20,20 +20,21 @@ public class E_Logical {
 	public static void main(String[] args) {
 		
 		E_Logical e = new E_Logical();
-		// e.method1();
+		 e.method1();
         //  e.method2();
 		// e.practice();
-		 e.casting();
+		// e.casting();
 	}
 
 	public void method1() {
 		
 		// 사용자가 입력한 정수값이 1부터 100 사이 값인지 확인 
 		Scanner sc = new Scanner(System.in); 
-		System.out.println("정수값을 입력해 주세요 >");
+		System.out.print("정수값을 입력해 주세요 >");
 		int number = sc.nextInt();
 	    boolean result = 1 <= number && number <= 100;
 		
+	    
 	
 		System.out.printf("%d는 1 부터 100 사이의 값인가요? : %b",number,result);
 	}
@@ -110,4 +111,3 @@ public class E_Logical {
 
 
 
-p

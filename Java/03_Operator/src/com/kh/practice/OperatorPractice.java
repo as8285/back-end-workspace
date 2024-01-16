@@ -13,7 +13,7 @@ public class OperatorPractice {
 		// a.method2();
 		// a.method3();
 		// a.method4();
-		// a.method5();
+		 //a.method5();
 		a.method6();
 	}
 
@@ -34,7 +34,7 @@ public class OperatorPractice {
 	public void method2() {
 		System.out.println("숫자를 입력하시오 >");
 		int number = sc.nextInt();
-		System.out.println(number - (number % 100));
+		System.out.println(number - (number /100)*100);
 	}
 
 	// 3개의 수를 키보드로 입력 받아 입력 받은 수가 모두 같으면 true, 아니면 false를 출력하세요.
@@ -62,8 +62,9 @@ public class OperatorPractice {
 	public void method5() {
 		System.out.println("나이를 입력하세요 >");
 		int age = sc.nextInt();
-		String result = age <= 13 ? "어린이" : age >= 13 && age >= 19 ? "청소년" : "성인";
+	   String result = (age <= 13) ? "어린이" :(age >19)? "성인":"청소년";
 		System.out.println(result);
+		
 	}
 
 	// 키보드로 사과의 개수와 바구니의 크기(바구니 1개의 들어가는 사과의 개수)를 입력받아
@@ -73,13 +74,19 @@ public class OperatorPractice {
 		int apple1 = sc.nextInt();
 		System.out.println(" 바구니의 크기(바구니 1개의 들어가는 사과의 개수) >");
 		int apple2 = sc.nextInt();
-
+		
+	System.out.println("필요한 바구니 수 " + (apple1 / apple2+apple1 % apple2));
+		
+		
+		// 8 4 = 2+0
 		// 9 4 = 2+1
 		// 12 5 = 2+1
 		// 17 7 = 2+1
+		
 		// apple / apple2 = (apple / apple2) + 1
-
-		System.out.println("필요한 바구니의 수 : " + (apple1 / apple2) + 1);
-	}
-
+		
+		
+       // apple / apple2 = (apple / apple)
+	}	
 }
+		

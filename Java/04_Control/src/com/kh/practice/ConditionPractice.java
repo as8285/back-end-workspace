@@ -12,6 +12,8 @@ public class ConditionPractice {
 		// a.practice2();
 		// a.practice3();
 		 a.practice5();
+		//a.practice6();
+		//a.practice7();
 
 	}
 
@@ -147,15 +149,19 @@ public class ConditionPractice {
     	
     	System.out.println("가격을 입력하세요 >");
     	int num = sc.nextInt(); 
+    	String str = String.format("%,d"+num);
+    	
     	if (num >=100000) {
-    		System.out.printf("지불 값 : "+"%.0f",(num*0.95));
+    	   int 	result= (num * 0.95);
+    		System.out.println(str);
     
     	}else if (num >=300000) {
-    		System.out.println("지불 값 : "+"%.0f"+ num*0.9);
+    		System.out.println("지불 값 : "+"%,d"+ num*0.9);
     
     	}
     	else if (num >=300000) {
     		System.out.println("지불 값 :" + num*0.8);
+    	
     
     	}
     	
@@ -164,9 +170,21 @@ public class ConditionPractice {
 
     /*
         6. 각에서 0도 초과 90도 미만은 예각, 90도는 직각, 90도 초과 180도 미만은 둔각 180도는 평각으로 분류한다.
-        입력받은 각에 따라 예각일 때 1, 직각일 때 2, 둔각일 때 3, 평각일 때 4를 출력하세요.
+        입력받은 값에 따라 예각일 때 1, 직각일 때 2, 둔각일 때 3, 평각일 때 4를 출력하세요.
      */
     public void practice6() {
+    	System.out.println("각을 입력하세요 >");   	 
+    	int num = sc.nextInt();
+		if (num < 90) {
+			System.out.println('1');
+		} else if (num == 90) {
+			System.out.println('2');
+		} else if (num < 180) {
+			System.out.println('3');
+		} else if (num == 180) {
+			System.out.println('4');
+		}
+    	
     	
     }
 
@@ -192,6 +210,30 @@ public class ConditionPractice {
           아이디가 틀렸습니다.
     */
     public void practice7() {
+    	
+    	System.out.println("아이디를 입력하세요 >");
+        String id = sc.nextLine();
+        System.out.println("비밀번호를 입력하세요 >");
+        String pwd = sc.nextLine();
+    	if(id.equals("happy") && pwd.equals("1234"){
+    		 System.out.println("로그인에 성공했습니다");
+    	}
+
+    }
+  
+
+
+        
+    	System.out.println("name의 주소값" + System.identityHashCode(name));
+		System.out.println("name의 주소값" + System.identityHashCode("윤민영"));
+		System.out.println(name == "윤민영"); // false 
+		System.out.println(name.equals("윤민영"));
+    	
+    	/*id == 'happy' 
+    	pwd == '1234' */
+    	
+    	
+    	
     	
     }
 
