@@ -11,9 +11,11 @@ public class ConditionPractice {
 		// a.practice1();
 		// a.practice2();
 		// a.practice3();
-		 a.practice5();
+		 //a.practice5();
 		//a.practice6();
 		//a.practice7();
+		//a.practice8();
+		a.practice9();
 
 	}
 
@@ -149,18 +151,17 @@ public class ConditionPractice {
     	
     	System.out.println("가격을 입력하세요 >");
     	int num = sc.nextInt(); 
-    	String str = String.format("%,d"+num);
     	
-    	if (num >=100000) {
-    	   int 	result= (num * 0.95);
-    		System.out.println(str);
+    	if (num >=100000 && num <300000) {
+    	
+    		System.out.println(String.format("%,d", num));
     
-    	}else if (num >=300000) {
-    		System.out.println("지불 값 : "+"%,d"+ num*0.9);
-    
+    	}else if (num >=300000 && num < 500000) {
+    		System.out.println("지불 값 : "+ String.format("%,d", num*0.9));
+    			
     	}
-    	else if (num >=300000) {
-    		System.out.println("지불 값 :" + num*0.8);
+    	else if (num>500000) {
+    		System.out.println("지불 값 :" + String.format("%,d", num*0.9));
     	
     
     	}
@@ -215,27 +216,26 @@ public class ConditionPractice {
         String id = sc.nextLine();
         System.out.println("비밀번호를 입력하세요 >");
         String pwd = sc.nextLine();
-    	if(id.equals("happy") && pwd.equals("1234"){
-    		 System.out.println("로그인에 성공했습니다");
+        while(true) {
+	    	if(id=="happy" && pwd=="1234"){
+	    		 System.out.println("로그인에 성공했습니다");
+	    	}else if (id!="happy"&& pwd=="1234") {
+	    		 System.out.println("아이디가 틀렸습니다.");
+	    	}else if (id=="happy" && pwd !="1234") {
+	    		 System.out.println("비밀번호가 틀렸습니다.");
+	    	}else {
+	    		System.out.println("다시 입력하세요");
+	    	}
     	}
+    	
 
     }
   
 
 
         
-    	System.out.println("name의 주소값" + System.identityHashCode(name));
-		System.out.println("name의 주소값" + System.identityHashCode("윤민영"));
-		System.out.println(name == "윤민영"); // false 
-		System.out.println(name.equals("윤민영"));
-    	
-    	/*id == 'happy' 
-    	pwd == '1234' */
-    	
-    	
-    	
-    	
-    }
+    
+ 
 
     /*
         8. 키, 몸무게를 double로 입력 받고 BMI지수를 계산하여 계산 결과에 따라 저체중 / 정상체중 / 과체중 / 비만을 출력하세요.
@@ -250,9 +250,30 @@ public class ConditionPractice {
             저체중
 
      */
-    public void practice8() {
-       
-    }
+   public void practice8() {
+	   
+       System.out.println("키(m)를 입력하세요");  
+	   double num1 = sc.nextInt();
+	   System.out.println("몸무게(kg)를 입력하세요");
+	   double num2 = sc.nextInt();
+	   double bmi = ((num2) / (num1 * num1));
+	   if (bmi<18.5) {
+		System.out.println("저체중");   
+		   }else if(bmi>=18.5 && bmi<23) {
+			   System.out.println("정상체중");	   
+		   }else if(bmi>=23 && bmi<25) {
+			System.out.println("과체중");   
+		   
+		   }else if(bmi>=25 && bmi<30) {
+			   System.out.println("비만");
+		   }else {
+			   System.out.println("고도비만");
+		   }
+	   
+   }
+    	
+    	
+
 
     /*
         9. 키보드로 두 개의 양수와 연산 기호를 입력 받아 연산 기호에 맞춰 연산 결과를 출력하세요.
@@ -265,9 +286,20 @@ public class ConditionPractice {
 
      */
     public void practice9() {
-    	
+    	System.out.print("숫자 입력 : ");
+    	int num1 = Integer.parseInt(sc.nextLine());
+    	System.out.print("숫자 입력 : ");
+    	int num2 = Integer.parseInt(sc.nextLine());
+    	System.out.print("연산자를 입력(+,-,*,/,%) : ");	
+       	char op= sc.nextLine().charAt(0);
+       if(op=='+' || op =='-'||op=='*'||op=='/'||op=='%') {
+       	System.out.print(%d %c %d = %d,num1,op,num2,
+       	                 op == '+'?(num1+num2):(num1-num2):
+       	                	(num1*num2):(num1%num2));}
+    else {
+    	System.out.println("잘못입력했습니다/");
     }
-
+    }
     /*
       10. 아래 예시와 같이 메뉴를 출력하고 메뉴 번호를 누르면 “OO메뉴입니다“를, 종료 번호를 누르면 “프로그램이 종료됩니다.”를 출력하세요
 

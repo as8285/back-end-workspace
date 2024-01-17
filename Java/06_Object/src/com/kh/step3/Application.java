@@ -28,7 +28,8 @@ public class Application {
 		System.out.println("곱하기  : " + c.multiply());
 		System.out.println("곱하기 2 : " + c.multiply(100, 200));
 		System.out.println("나누기 : " + Calculator.divide(c.a,c.b));
-		
+	System.out.println("팩토리얼 : " + c.factorial(4));
+	System.out.println("팩토리얼 : " + c.factorial2(4));
 	}
 
 }
