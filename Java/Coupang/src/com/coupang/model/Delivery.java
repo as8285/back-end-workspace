@@ -3,14 +3,13 @@ package com.coupang.model;
 import java.util.Date;
 
 public class Delivery {
-private int deliCODE;
-private int purCode;
-private Date deliDate;
-private String deliCompany;
-private int cost;
-private String deliAddr;
-
-private Purchase purchase;
+	private int deliCode;
+	private Date deliDate;
+	private String deliCompany;
+	private int deliCost;
+	private String deliAddr;
+	
+	private Purchase purchase;
 }
 /*CREATE TABLE delivery(
 		deli_code INT AUTO_INCREMENT PRIMARY KEY, -- 배송 코드 

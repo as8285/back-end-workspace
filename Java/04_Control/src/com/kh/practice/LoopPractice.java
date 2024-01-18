@@ -20,7 +20,7 @@ class LoopPractice {
 	
     public void method1() {
     	
-    	System.out.println("숫자를 입력하세요 >");
+    	System.out.print("사용자 입력 : ");
     	int num = sc.nextInt();
     	for (int i=num;i>=1;i--)
          System.out.println(i);
@@ -33,46 +33,51 @@ class LoopPractice {
     // 2. 1+(-2)+3+(-4)+...과 같은 식으로 계속 더해나갔을 때, 몇까지 더해야 총합이 100 이상 되는지 출력하시오.
     public void method2() {
     int sum =0;
-      for(int i=1;i<=100;i++)
-    for(int j=-2;i>=-100;i--) {
+      for(int i=1;i<=100;i++) {
+    	  if(i%2==0) {
+    		  int sum1 = '-';
+    		  System.out.println(sum1);
+    	  }
     	System.out.println(i);
-    	if(i%2!=0)continue;
-    	System.out.println(j);
-    }
-    }
-
+    	  
+   
+    }}
+    
 
     /*
         3. 사용자로부터 문자열을 입력 받고 문자열에서 검색될 문자를 입력 받아 해당 문자열에 그 문자가 몇 개 있는지 개수를 출력하세요. 
 
         문자열 : banana
         문자 : a
-        banana 안에 포함된 a 개수 : 3
-
-    */
-	/*char[] arr = str.toCharArray();
-	System.out.println(arr);	
-	for(char ch : arr) {
-	System.out.println(ch);	
-	}
+        banana 안에 포함된 a 개수 : 3*/
+public void method3() {
+	System.out.print("문자열 : ");
+	String text1 = sc.nextLine();
+	System.out.print("문자 : ");
+	String text2 = sc.nextLine();
+		char []arr = text1.toCharArray();
+		System.out.println(arr);
+		for(char ch : arr) {
+			System.out.println(1);	
+			}
+}
 	
-	}*/
+
+
+			
+	/*System.out.println(text + " 안에 포함된 " + text1 + " 개수 : " );*/
+
+		
+
+	
+/*
+ * text[0]text[1]text[3]text[4]
+ * */
     
-    
-    
-    
-    
-    public void method3() {
-    	System.out.println("문자열을 입력하세요 >");
-    	String num = sc.nextLine();
-    	System.out.println("문자열 :" + num);
-    	String sum= sc.nextLine();
-    	System.out.println("문자 :"+ num1);
-   
-    }
     
 
-    /*
+
+	/*
         4. 0이 나올 때까지 숫자를 출력하시오. (random 사용! 0 ~ 10)
         7
         3
@@ -131,7 +136,7 @@ class LoopPractice {
 public static void main(String[] args) {
 	 LoopPractice a = new  LoopPractice();
 	 //a.method1();
-	 //a.method2();
+	// a.method2();
 	a.method3();
 }
 

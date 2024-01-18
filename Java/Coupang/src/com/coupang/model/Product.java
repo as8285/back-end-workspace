@@ -4,15 +4,15 @@ import java.util.Date;
 
 public class Product {
 	
-	private int proCode;
-	private String enteId;
-	private int cateCode;
+	private int prodCode;
 	private String prodName;
 	private String prodDesc;
 	private int price;
 	private int stock;
-	private Date ProdDate; 
-
+	private Date prodDate;
+	
+	private Enterprise enterprise;
+	private Category category;
 
 }
 /*CREATE TABLE product(

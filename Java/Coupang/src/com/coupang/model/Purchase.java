@@ -4,13 +4,12 @@ import java.util.Date;
 
 public class Purchase {
 	
-	private  int purCode;
-	private int prodCode;
+	private int purCode;
 	private Date purDate;
 	private String purStatus;
 	
 	private Customer customer;
-	private Product procduct;
+	private Product product;
 }
 /*CREATE TABLE purchase(
 		pur_code INT AUTO_INCREMENT PRIMARY KEY, -- 구매 코드 

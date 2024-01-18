@@ -1,13 +1,13 @@
 package com.coupang.model;
 
-public class enterprise {
+public class Enterprise {
 	private String enteId;
 	private String password;
 	private String name;
 	private String company;
 	private String address;
-	private int registNumber;
-	private int companyPhone;
+	private String registNumber;
+	private String companyPhone;
 
 }
 /*CREATE TABLE enterprise(

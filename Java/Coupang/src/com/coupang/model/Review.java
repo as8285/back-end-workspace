@@ -3,14 +3,14 @@ package com.coupang.model;
 import java.util.Date;
 
 public class Review {
-	private int reviCode; 
+	private int reviCode;
 	private String reviTitle;
-	private String reviDest;
+	private String reviDesc;
 	private Date reviDate;
 	private int rating;
 	
-private Customer customer;
-private Product product;
+	private Customer customer;
+	private Product product;
 }
 /*CREATE TABLE review(
 		revi_code INT AUTO_INCREMENT PRIMARY KEY, -- 리뷰 코드 

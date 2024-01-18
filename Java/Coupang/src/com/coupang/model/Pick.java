@@ -4,10 +4,10 @@ import java.util.Date;
 
 public class Pick {
 	
-	private int proCode;
-	private Date PickDate;
+	private int pickCode;
+	private Date pickDate;
 	
-	private Customer customer ;
+	private Customer customer;
 	private Product product;
 
 }

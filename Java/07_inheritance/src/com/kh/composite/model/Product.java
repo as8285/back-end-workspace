@@ -11,7 +11,7 @@ public class Product {
 	public Product(String brand, String pCode, String name, int price) {
 		this.brand = brand;
 		this.pCode = pCode;
-		this.name = name;
+		this.name = name;	
 		this.price = price;
 	}
 	
