@@ -5,19 +5,6 @@ import java.util.Scanner;
 public class ConditionPractice {
 	Scanner sc = new Scanner(System.in);
     
-	public static void main(String[] args) {
-		
-		ConditionPractice a = new ConditionPractice();
-		// a.practice1();
-		// a.practice2();
-		// a.practice3();
-		 //a.practice5();
-		//a.practice6();
-		//a.practice7();
-		//a.practice8();
-		a.practice9();
-
-	}
 
     /*
        1. 키보드로 정수를 입력 받은 정수가 양수이면서 짝수일 때만 “짝수다”를 출력하고 짝수가 아니면 “홀수다“를 출력하세요.
@@ -147,27 +134,32 @@ public class ConditionPractice {
         구매한 옷 가격 : 580,000
         464,000
      */
-    public void practice5() {
-    	
-    	System.out.println("가격을 입력하세요 >");
-    	int num = sc.nextInt(); 
-    	
-    	if (num >=100000 && num <300000) {
-    	
-    		System.out.println(String.format("%,d", num));
-    
-    	}else if (num >=300000 && num < 500000) {
-    		System.out.println("지불 값 : "+ String.format("%,d", num*0.9));
-    			
-    	}
-    	else if (num>500000) {
-    		System.out.println("지불 값 :" + String.format("%,d", num*0.9));
-    	
-    
-    	}
-    	
-    }
 
+	public void practice5() {
+
+		System.out.print("가격을 입력하세요 : ");
+		int num = sc.nextInt();
+		if (num >= 100000 && num < 300000) {
+			double discount = num * 0.95;
+			System.out.println("구매 옷 가격 : " + String.format("%,d", num));
+			System.out.print("지불 값 : " + String.format("%,d", (int) discount));
+
+		} else if (num >= 300000 && num < 500000) {
+			double discount = num * 0.9;
+			System.out.println("구매 옷 가격 : " + String.format("%,d", num));
+			System.out.print("지불 값 : " + String.format("%,d", (int) discount));
+
+		} else if (num > 500000) {
+			double discount = num * 0.8;
+			System.out.println("구매 옷 가격 : " + String.format("%,d", num));
+			System.out.print("지불 값 : " + String.format("%,d", (int) discount));
+
+		} else {
+			System.out.println("구매 옷 가격 : " + String.format("%,d", num));
+			System.out.println("지불 값 : " + String.format("%,d", num));
+		}
+
+	}
 
     /*
         6. 각에서 0도 초과 90도 미만은 예각, 90도는 직각, 90도 초과 180도 미만은 둔각 180도는 평각으로 분류한다.
@@ -216,20 +208,18 @@ public class ConditionPractice {
         String id = sc.nextLine();
         System.out.println("비밀번호를 입력하세요 >");
         String pwd = sc.nextLine();
-        while(true) {
-	    	if(id=="happy" && pwd=="1234"){
-	    		 System.out.println("로그인에 성공했습니다");
-	    	}else if (id!="happy"&& pwd=="1234") {
-	    		 System.out.println("아이디가 틀렸습니다.");
-	    	}else if (id=="happy" && pwd !="1234") {
+	     if(!id.equals("happy")) {
+	    		 System.out.println("아이디가 틀렸습니다."); 		 
+	    	}
+	    	if(!pwd.equals("1234")) {
 	    		 System.out.println("비밀번호가 틀렸습니다.");
-	    	}else {
+	    	}
+	    	
+	    	else {
 	    		System.out.println("다시 입력하세요");
 	    	}
-    	}
-    	
-
     }
+
   
 
 
@@ -285,7 +275,7 @@ public class ConditionPractice {
             15 / 4 = 3
 
      */
-    public void practice9() {
+   /* public void practice9() {
     	System.out.print("숫자 입력 : ");
     	int num1 = Integer.parseInt(sc.nextLine());
     	System.out.print("숫자 입력 : ");
@@ -299,11 +289,11 @@ public class ConditionPractice {
     else {
     	System.out.println("잘못입력했습니다/");
     }
-    }
+    }*/
     /*
       10. 아래 예시와 같이 메뉴를 출력하고 메뉴 번호를 누르면 “OO메뉴입니다“를, 종료 번호를 누르면 “프로그램이 종료됩니다.”를 출력하세요
 
-        1. 입력
+        1. 입력0
         2. 수정
         3. 조회
         4. 삭제
@@ -366,4 +356,18 @@ public class ConditionPractice {
         
     }
     
+
+public static void main(String[] args) {
+	
+	ConditionPractice a = new ConditionPractice();
+	// a.practice1();
+	// a.practice2();
+	// a.practice3();
+	 //a.practice5();
+	//a.practice6();
+	a.practice7();
+	//a.practice8();
+	//a.practice9();
+
+}
 }
