@@ -1,4 +1,4 @@
-package com.kh.inheritance.child;
+package com.kh.overriding.model;
 
 import com.kh.inheritance.parent.Product;
 

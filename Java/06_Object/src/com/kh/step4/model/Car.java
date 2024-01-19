@@ -17,9 +17,9 @@ public class Car {
 	 * 
 	 * */
 	
-	private String color; 
-	private String gearType;
-	private int door;
+//	private String color; 
+//	private String gearType;
+//	private int door;
 	
 	private String color; // 색상 
 	private String gearType; // 자동 or 수도 

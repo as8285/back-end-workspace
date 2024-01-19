@@ -71,7 +71,7 @@ public class ArrayPractice {
 	public void method3() {
 		System.out.println("음식메뉴를 입력하세요 : ");
 		String menu = sc.nextLine();
-		String arr[] = new String[charAT[menu.length]];
+//		String arr[] = new String[[menu.length()]];
 	
 	    for(int i =0 ; i<=5;i++) {
 	    	System.out.println(menu);

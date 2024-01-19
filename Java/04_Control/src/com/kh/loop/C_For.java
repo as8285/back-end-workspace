@@ -51,12 +51,12 @@ public class C_For {
 		}
 	}
 	
-	public void method4() {
-		System.out.println("홀수만 출력하세요>");
-		for(int i=1;i<=10;i+=2) {
-			System.out.println(i);
-		}
-	}
+//	public void method4() {
+//		System.out.println("홀수만 출력하세요>");
+//		for(int i=1;i<=10;i+=2) {
+//			System.out.println(i);
+//		}
+//	}
 	/*
 	 * continue 문 
 	 * 

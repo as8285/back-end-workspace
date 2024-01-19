@@ -15,7 +15,7 @@ public class A_Variable {
 		// 생성한 클래스로 메소드 실행(호출)
 //		variable.printValue();
 		// variable.variableTest();
-		variable.constant();
+		//variable.constant();
 	}
 
 public void prinValue() {
