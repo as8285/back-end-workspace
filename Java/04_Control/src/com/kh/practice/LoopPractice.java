@@ -1,4 +1,5 @@
 package com.kh.practice;
+import java.util.Arrays;
 import java.util.Scanner;
 class LoopPractice {
 	
@@ -29,6 +30,22 @@ public void method2() {
 		
 		int sum = 0;
 		int num = 1;
+		while(sum<100) {
+		if(num%2 == 0) {
+			sum-=num;
+		}else {
+			sum+=num;
+			
+		}
+		/*if(sum>=100) {
+			
+			break;*/
+			
+		}num++;
+		System.out.println("총합이 100이상이 되려면 " + (num-1) + "까지 더해야 한다");
+		}
+		
+		/*
 		while(true) {
 		if(num%2!=0) {
 			sum+=num;
@@ -42,7 +59,7 @@ public void method2() {
 		num++;
 		}
 		}
-	
+	*/
 	/*
     3. 사용자로부터 문자열을 입력 받고 문자열에서 검색될 문자를 입력 받아 해당 문자열에 그 문자가 몇 개 있는지 개수를 출력하세요.
     문자열 : banana
@@ -52,17 +69,24 @@ public void method2() {
 	public void method3() {
 		System.out.print("문자열 : ");
 		String name1 = sc.nextLine();
-		System.out.print("문자열 : ");
+		
+		System.out.print("문자 : ");
 		char name2 = sc.nextLine().charAt(0);
+		
 		int result = 0;
-		for (int i = 0; i < name1.length(); i++) {
+		/*for (int i = 0; i < name1.length(); i++) {
 			if (name1.charAt(i) == name2) {
 				result++;
 			} else {
 				continue;
-			}
-			System.out.printf("%s안에 포함된 %s 개수 : %d , ", name1, name2, result);
+			}*/
+		// ->str.toCharArray() : 문자열을 문자 배열로 ! 
+		for(char s :name1.toCharArray()) {
+			System.out.println(s);
+			
 		}
+			/*System.out.printf("%s안에 포함된 %s 개수 : %d , ", name1, name2, result);*/
+		System.out.println(name1 +"안에포함된" + name2+"개수 :" + result);
 	}
   /*
     4. 0이 나올 때까지 숫자를 출력하시오. (random 사용! 0 ~ 10)
@@ -76,15 +100,12 @@ public void method2() {
    */
   public void method4() {
    	
-  	int random = (int)(Math.random()*10)+1; // 0~1 출력 
-  	int num= 0;
   	while(true) {
-  		if(random==num)break;
-   		
-  	else {
-  		System.out.print((int)random++<10);
+  		int random = (int)(Math.random()*11); // 0<=random<11 가로로 감싸야지 나온다.
+  		System.out.println(random);
+  		if(random==0)break;
   	}
-  }}
+  }
   
    		
    		
@@ -101,7 +122,41 @@ public void method2() {
     6 : 0
    */
   public void method5() {
+	  int[] dice = new int[6];
+	  /*
+	  for(int i = 0;i<10;i++) {
+		 int random= (int)(Math.random()*6+1);
+		 switch(random) {
+		  case 1 : dice[0]++;
+			  break;
+		  case 2 :dice[1]++;
+			  break;
+		  case 3 : dice[2]++;
+			  break;
+		  case 4 : dice[3]++;
+			  break;
+		  case 5 : dice[4]++;
+			  break;
+		  case 6 : dice[5]++;
+			  break;
+			 
+		  }
+		
+		  
+	  }
+	  
+	  for(int i = 0;i<dice.length;i++) {
+		  System.out.println((i+1) + " : " + dice[i]);
+	  }
+  }*/ for(int i = 0;i<10;i++) {
+		 int random= (int)(Math.random()*6+1);
+	 dice[random]++;
   }
+  for(int i=0;i<dice.length;i++) {
+	  System.out.println((i+1) + " : " + dice[i]);
+  }
+  }
+
   /*
     6. 사용자의 이름을 입력하고 컴퓨터와 가위바위보를 하세요.
     컴퓨터가 가위인지 보인지 주먹인지는 랜덤한 수를 통해서 결정하도록 하고, 사용자에게는 직접 가위바위보를 받으세요.
@@ -121,12 +176,52 @@ public void method2() {
     이겼습니다 !
   */
   public void method6() {
-  }
+	  
+	  
+	  String[] rps = {"가위","바위","보"};
+	  int count1 = 0;
+	  int count2 = 0;
+	  int count3 = 0;
+	  
+	  System.out.println("당신의 이름을 입력해주세요 : ");
+	  String name = sc.nextLine();
+	  while(true) {
+		  System.out.println("가위바위보 : ");
+		  String input =sc.nextLine();
+		  
+	  // 배열에서 값으로 인덱스 찾기 -> 사용자가 입력한 값을 숫자로!
+		  Arrays.asList(rps).indexOf(input);
+		  int computer= (int)(Math.random()*3); // 0 - 가위, 1 - 바위, 2 - 보 
+		  System.out.println("컴퓨터 : " + computer);
+		  int number = Arrays.asList(rps).indexOf(input);
+		
+		  System.out.println(name + " : " + number);
+		  
+		  
+		  if(computer == number) {
+			  System.out.println("비겼습니다.");
+		  }else if((number == 0 && computer == 2)
+				  || (number == 1 && computer == 0)
+				  ||(number == 2 && computer == 1)) {
+		  }else  { // 이겼을 경우 
+			  System.out.println("이겼습니다 ! ");
+
+		  }}
+		  
+			 
+		
+
+}
+	 
+  
+  
 public static void main(String[] args) {
 	 LoopPractice a = new LoopPractice();
 	 //a.method1();
-	 //a.method2();
+	//a.method2();
 	//a.method3();
-	//a.method4();
+	//a .method4();
+	//a .method5();
+	a .method6();
 }
 }

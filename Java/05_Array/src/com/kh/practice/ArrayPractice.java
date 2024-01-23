@@ -1,5 +1,6 @@
 package com.kh.practice;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -46,17 +47,29 @@ public class ArrayPractice {
 	 * 2
 	 * */
 	public void method2() {
-		System.out.println("정수를 입력하세요 >");
-		int num = sc.nextInt();
-		System.out.println("정수 : " + num); // 5 
-     // 배열 담을 값 생성 
-		String[] arr = new String [num];
-	   for(int i=0;i<=num;i++) { 	 
-		   System.out.print("배열" + i +"번째" + "인덱스에" + "넣을 값 :" );
-		   int num2 = sc.nextInt();
-	   }
-		  
+		
+		System.out.print("정수 : ");
+	    int num = sc.nextInt();
+
+	    int[] score = new int[num];
+
+	    for(int i = 0; i < score.length; i++) {
+	        System.out.printf("배열"+ i+"번째 인덱스에 넣을 값 : ",i);
+	        score[i] = sc.nextInt();
+	    }
+	    int sum = 0;
+	    for(int i = 0; i < score.length; i++) {
+	        System.out.print(score[i] + " ");
+	        sum += score[i];
+	    }
+	    System.out.println();
+	    System.out.println("총 합 : " + sum);
 	}
+
+		   
+	
+	  
+	
 	
 
 
@@ -69,14 +82,26 @@ public class ArrayPractice {
 	 * 
 	 * */
 	public void method3() {
-		System.out.println("음식메뉴를 입력하세요 : ");
-		String menu = sc.nextLine();
-//		String arr[] = new String[[menu.length()]];
-	
-	    for(int i =0 ; i<=5;i++) {
-	    	System.out.println(menu);
-	    }
+		System.out.print("음식메뉴를 입력하세요 : ");
+		String food = sc.nextLine();
+		String menu[] = { "햄버거", "피자", "감자튀김", "바지락칼국수" };
+		for (int i = 0; i <= 5; i++) {
+			if (menu[i].equals(food)) {
+				System.out.print("배달 가능");
+				break;
+
+			}
+			if (!menu[i].equals(food)) {
+				System.out.print("배달 불가능");
+				break;
+			}
+		}
 	}
+			
+
+
+
+	
 	
 	/*
 	 * 
@@ -87,9 +112,30 @@ public class ArrayPractice {
 	 * 123456-1******
 	 * 
 	 * */
-	public void method4() {
+
+		public void method4() {
+			System.out.print("주민등록번호 :");
+			String str = sc.nextLine();
+	char[]number = new char[str.length()];
+	for(int i=0;i<number.length;i++) {
+		
+		number[i]=str.charAt(i);
+		
+		if(i>7) {
+			number[i] ='*';
+		}
+		
+		System.out.print(number[i]);
 		
 	}
+	    }
+
+			
+	
+		
+		  
+	
+	
 	
 	/*
 	 * 사용자가 입력한 단어를 거꾸로 뒤집어서 출력하세요. 
@@ -99,15 +145,24 @@ public class ArrayPractice {
 	 * 
 	 * */
 	public void method5() {
-		
+
+		System.out.print("단어 입력 : ");
+		String word = sc.nextLine();  
+		for(int i =word.length()-1;i>=0;i--) {
+			System.out.print(word.charAt(i));
+		}
 	}
+		
+		
 	
 
 public static void main(String[] args) {
 	 ArrayPractice a = new ArrayPractice();
 	 //a.method1();
-	 //a.method2();
-	 a.method3();
+	//a.method2();
+	//a.method3();
+	 //a.method4();
+	// a.method5();
 	 
 	
 }
