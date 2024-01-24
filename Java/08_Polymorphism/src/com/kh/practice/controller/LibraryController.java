@@ -13,7 +13,6 @@ public class LibraryController {
 	 bookList[2] = new AniBook("원피스 107 ",19);
 	 bookList[3] = new AniBook("주술회전 24 ",15);
 	 
- }
 	
 	
 }
