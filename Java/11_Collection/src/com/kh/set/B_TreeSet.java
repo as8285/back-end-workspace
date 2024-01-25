@@ -1,36 +1,35 @@
 package com.kh.set;
 
-import java.util.HashSet;
+
 import java.util.Iterator;
 import java.util.Set;
-
-
+import java.util.TreeSet;
 
 import com.kh.set.model.Person;
 
 /*
- * 
- * Set의 특징  
- * - 중복 없음 
- * - 순서 없음  
+ * TreeSet 
+ * - 저장과 동시에 자동 오름 차순 정렬 (HashSet + 정렬 )
+ *   HashSet 보다 데이터 추가 ,삭제에 시간이 더 걸림  
  * 
  * */
 
+
 //HashSet : Set 인터페이스를 구현한 대표적인 컬렉션 클래스 
-public class A_HashSet {
+public class B_TreeSet {
 
 	
 	
 	public static void main(String[] args) {
-		A_HashSet a = new A_HashSet();
-		// a.method1();
+		B_TreeSet a = new B_TreeSet ();
+		 //a.method1();
 		a.method2();
 	
 	}
 	
 	
 	public void method1() {
-		Set<String> set = new HashSet<>();
+		Set<String> set = new TreeSet<>();
 
 	
 		set.add("라미란");
@@ -57,8 +56,15 @@ public class A_HashSet {
 	
 	
 	
+	/*@Override
+	public int compareTo(Person o) {
+		return this.name.compareTo(name);
+	}  
+*/
+	
+	
 	public void method2 () {
-		HashSet<Person> set = new HashSet<>();
+		TreeSet<Person> set = new TreeSet<>();
 		
 		set.add(new Person("라미란", 48)); 
 		set.add(new Person("공명", 29));
@@ -95,4 +101,3 @@ public class A_HashSet {
 
 	}}
 	
-

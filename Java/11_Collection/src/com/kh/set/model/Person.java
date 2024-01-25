@@ -2,7 +2,7 @@ package com.kh.set.model;
 
 import java.util.Objects;
 
-public class Person {
+public class Person implements Comparable<Person>{
 
 	private String name; 
 	private int age;
@@ -47,6 +47,15 @@ public class Person {
 			return false;
 		Person other = (Person) obj;
 		return age == other.age && Objects.equals(name, other.name);
+	}
+	@Override
+	public int compareTo(Person o) {
+		//return this.age == o.age?0 : this.age > o.age ? 1 : -1; 나이 
+		//return (this.age - o.age)*1; //나이가 반대로 
+		 
+		return this.name.compareTo(o.name) * -1;  // 이름 반대로  
+		//return this.name.compareTo(name); 이름 
+	
 	}  
 
 }
