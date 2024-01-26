@@ -77,6 +77,13 @@ public class A_HashMap {
 		}
 	}
 
+/*	public Snack(String flavor, int calorie) {
+		 
+		this.flavor = flavor;
+		this.calorie = calorie;
+	}*/
+	
+	
 	public void method2() {
 		Map<String, Snack> map = new HashMap<>();
 		map.put("웨하스", new Snack("치즈", 240));
