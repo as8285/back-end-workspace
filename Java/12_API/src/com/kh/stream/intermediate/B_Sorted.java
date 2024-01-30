@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
-import kh.com.stream.model.Student;
+import com.kh.stream.intermediate.model.Student;
 
 /*
  * 정렬

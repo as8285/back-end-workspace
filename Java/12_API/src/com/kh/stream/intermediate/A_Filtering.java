@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
 
-import kh.com.stream.model.Student;
+import com.kh.stream.intermediate.model.Student;
 
 /*
  * 
