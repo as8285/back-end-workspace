@@ -5,91 +5,69 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import com.kh.model.dao.BookDAO;
+import com.kh.model.vo.Book;
+import com.kh.model.vo.Publisher;
 
 
 public class BookController {
+	private BookDAO dao = new BookDAO();
 
-	public  BookController() {
-
+	// 1.전체 책 조회
+	public ArrayList<Book> printBookAll() {
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+			return dao.printBookAll();
+		} catch (SQLException e) {
+
 			e.printStackTrace();
 		}
-	}
-	public Connection getConnect() throws SQLException {
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/sample", "root", "1234");
-		return conn;
+		return null;
 	}
 	
-	public void closeAll(PreparedStatement ps, Connection conn)throws SQLException{
-		
-		ps.close();
-		conn.close();
-	}
-	public void closeAll(ResultSet rs,PreparedStatement ps,Connection conn) throws SQLException{
-		rs.close();
-		closeAll(ps,conn);
-		
-	}
-	public void printBookAll() throws SQLException{
-	Connection conn = getConnect();
-	String query= "SELECT * FROM tb_book";
-	PreparedStatement ps = conn.prepareStatement(query);
-	ResultSet rs = ps.executeQuery();
-	System.out.println("====== 책 목록 ======");
-		while (rs.next()) {
-
-			System.out.println(rs.getString("bk_title") + " - "   + rs.getString("bk_author"));
-		}
-		
-		
-		 closeAll(rs,ps, conn);
-
-	}
 	// 2. 책등록
-		public void registerBook() throws SQLException{
-			Connection conn = getConnect();
-			String query = "INSERT INTO tb_book(bk_title,bk_author) VALUES('?','?')";
-			PreparedStatement ps = conn.prepareStatement(query);
-			ResultSet rs = ps.executeQuery();
-			System.out.println("====== 책 목록 ======");
-			while (rs.next()) {
-				
-				System.out.println(rs.getString("bk_title") + " - "   + rs.getString("bk_author"));
-			}
-			
-			
-			 closeAll(rs,ps, conn);
 
-			// 책제목, 책 저자를 사용자한테 입력 받아 
-			// 등록에 성공하면 "성공적으로 책을 등록했습니다" 출력 
-			// 실패하면 "책을 등록하는 데 실해했습니다." 출력
-			
+	public boolean registerBook(String title, String author) {
+		try {
+		if(dao.registerBook(title, author)==1){
+			return true;
+		
 		}
+		}
+		catch(SQLException e) {
+			e.printStackTrace();
+		
+		
+	
+	}
+		return false;
+	}
+	// 책삭제
+	public boolean sellBook(int no) {
+		try {
+		if(dao.sellBook(no)==1) return true;
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	// 회원가입 
+	
+	
+	
+	
+	
+	
 		// 1. 책대여
 		public void rentBook() throws SQLException{
 				
+			System.out.println(printBookAll());
+			
 			// printBookAll(전체 책 조회) 출력 후
-			Connection conn = getConnect();
-			String query1= "SELECT * FROM tb_book";
-			String query2= "SELECT * FROM tb_book WHERE ?";
-			PreparedStatement ps1 = conn.prepareStatement(query1);
-			PreparedStatement ps2 = conn.prepareStatement(query2);
-			ResultSet rs1 = ps1.executeQuery();
-			ResultSet rs2 = ps1.executeQuery();
-			System.out.println("====== 책 목록 ======");
-				while (rs1.next()) {
-
-					System.out.println(rs1.getString("bk_title") + " - "   + rs1.getString("bk_author"));
-				}
-				
-				while (rs2.next()) {
-
-					System.out.println(rs2.getString("bk_title") + " - "   + rs2.getString("bk_author"));
-				}
+				dao.rentBook();
 		
-					
 					}
 					
 				
@@ -100,7 +78,7 @@ public class BookController {
 			// 대여할 책 번호 선택을 사용자한테 입력 받아 
 			// 대여에 성공하면 "성공적으로 책을 대여했습니다." 출력 
 			// 실패하면 "책을 대여하는데 실패했습니다." 출력
-		}
+	
 		// 2. 내가 대여한 책 조회
 		public void printRentBook() throws SQLException{
 			// 내가 대여한 책들을 반복문을 이용하여 조회 
@@ -125,5 +103,5 @@ public class BookController {
 		
 	}
 
-	}
+	
 

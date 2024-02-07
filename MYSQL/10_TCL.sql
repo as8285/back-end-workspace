@@ -84,3 +84,6 @@ CREATE TABLE test(
 );
 -- > 트랜잭션 : JAVA --> JDBC (Java Data Base Connection,Java = MYSQL 연결)
 -- >> 				  -- > JDBC 때 다룰 예정 ! 
+
+
+

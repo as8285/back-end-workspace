@@ -151,3 +151,6 @@ INSERT INTO member(id,password,name,gender,age,grade_code)
 VALUES('user01','1234','신대규','남',10,10);
 INSERT INTO member(id,password,name,gender,age,grade_code) 
 VALUES('user02','1234','윤민영','여',10,10);
+
+
+

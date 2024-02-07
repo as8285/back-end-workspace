@@ -17,3 +17,8 @@ SELECT * FROM bank;
 
 INSERT INTO bank VALUES('정대윤', '국민은행', 1000000);
 INSERT INTO bank VALUES('신대규', '신한은행', 0);
+
+
+
+SELECT bk_title,bk_author
+ FROM tb_book WHERE bk_title='오늘부터 개발자'AND bk_author='김병욱';

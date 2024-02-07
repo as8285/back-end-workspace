@@ -354,6 +354,9 @@ FROM employee
 LEFT JOIN department on (dept_code = dept_id)
 GROUP BY dept_code;
 
+
+
+
 -- 6. 각 부서별 총 급여의 합이 1000만원 이상인 부서명,급여의 합을 조회 
 SELECT dept_title, sum(salary)
 FROM employee
@@ -373,6 +376,11 @@ HAVING sum(salary) >= 10000000;
 -- 급여 등급이 S1,S2인 경우 '고급'
 -- 급여 등급이 S3,S4인 경우 '중급'
 -- 급여 등급이 S5,S6인 경우 '초급'
+
+
+
+
+
 SELECT emp_id,emp_name,dept_title,job_name,sal_level,
   CASE WHEN sal_level IN ('S1','S2') THEN '고급'
           WHEN sal_level IN ('S3','S4') THEN '중급'

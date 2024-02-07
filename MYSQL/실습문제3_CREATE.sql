@@ -2,8 +2,7 @@ DROP TABLE tb_rent;
 DROP TABLE tb_member;
 DROP TABLE tb_book;
 DROP TABLE tb_publisher;
-select * FROM tb_book;
-select * FROM tb_like;
+
 -- 실습 문제
 -- 도서관리 프로그램을 만들기 위한 테이블 만들기
 
@@ -96,11 +95,11 @@ CREATE TABLE tb_rent(
 
 -- ALTER로 FOREIGN KEY만 관리
 ALTER TABLE tb_book ADD CONSTRAINT pub_no_fk 
-	FOREIGN KEY (pub_no) REFERENCES tb_publisher(pub_no);
+	FOREIGN KEY (pub_no) REFERENCES tb_publisher(pub_no) ON DELETE CASCADE;
 ALTER TABLE tb_rent ADD CONSTRAINT member_no_fk 
-	FOREIGN KEY(member_no) REFERENCES tb_member(member_no); 
+	FOREIGN KEY(member_no) REFERENCES tb_member(member_no) ON DELETE CASCADE; 
 ALTER TABLE tb_rent ADD CONSTRAINT bk_no_fk 
-	FOREIGN KEY(bk_no) REFERENCES tb_book(bk_no);
+	FOREIGN KEY(bk_no) REFERENCES tb_book(bk_no) ON DELETE CASCADE;
 
 INSERT INTO tb_rent(member_no, bk_no) VALUES(1, 2);
 INSERT INTO tb_rent(member_no, bk_no) VALUES(1, 3);
@@ -126,10 +125,24 @@ SELECT
     pub_name "출판사명",
     rent_date "대여일",
     adddate(rent_date, 7) "반납 예정일"
-FROM tb_renttb_booktb_book
+FROM tb_rent
 	JOIN tb_book USING (bk_no)
     JOIN tb_publisher USING (pub_no)
 WHERE member_no = 1;
 
-SELECT 
-rent_date 
+
+SELECT * FROM tb_rent;
+INSERT INTO tb(rent) VALUES(1,3);
+
+SELECT * FROM tb_rent 
+JOIN tb_book USING (bk_no)
+WHERE member_no=5;
+
+
+DELETE FROM tb_rent WHERE rent_no=2;
+
+
+UPDATE tb_member 
+SET status ='Y'
+WHERE member_no=1;
+
