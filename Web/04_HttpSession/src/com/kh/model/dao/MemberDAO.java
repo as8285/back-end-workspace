@@ -48,7 +48,7 @@ public class MemberDAO {
 		close(ps, conn);
 		return result;
 	}
-	public ArrayList<Member> allShowMember() throws SQLException{
+	public ArrayList<Member> showAllMember() throws SQLException{
 		Connection conn = getConnect();
 		String query = "SELECT*FROM member";
 		PreparedStatement ps =conn.prepareStatement(query);
