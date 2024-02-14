@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%String name =(String)request.getAttribute("name"); %>
-<h1><%=name %>님, 환영합니다</h1>
-
-
+<form action="JSTL_cChoose4_view.jsp">
+NUM : <input type="text" name="num"><br>
+<input type="submit" value="전송"><br>
+</form>
 </body>
 </html>

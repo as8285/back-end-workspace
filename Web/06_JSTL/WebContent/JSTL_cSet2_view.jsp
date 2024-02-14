@@ -7,6 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	로그인에 실패했습니다.
+	<h2>cSet2에서 바인딩된 값을 찾아옴</h2>
+	
+	상품코드: ${CODE}<br> 
+	상품명: ${NAME}<br> 
+	상품가격: ${PRICE}<br>
 </body>
 </html>
