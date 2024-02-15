@@ -41,6 +41,11 @@ public class ChattServer {
 			}
 			}catch(Exception e) {
 		
+				
+				
+				
+				ServerSocket server = new ServerSocket(6000);
+				Socket s = server.accept();
 		}
 	}}
 	
