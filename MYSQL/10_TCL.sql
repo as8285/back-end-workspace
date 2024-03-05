@@ -85,5 +85,13 @@ CREATE TABLE test(
 -- > 트랜잭션 : JAVA --> JDBC (Java Data Base Connection,Java = MYSQL 연결)
 -- >> 				  -- > JDBC 때 다룰 예정 ! 
 
+SELECT * FROM member;
+UPDATE member 
+SET id = 112
+ AND password=12;
 
 
+SELECT * FROM MEMBER;
+SELECT * 
+FROM member 
+WHERE id Like;

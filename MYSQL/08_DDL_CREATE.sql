@@ -455,3 +455,12 @@ AS SELECT
   FROM kh.employee;
 
 SELECT * FROM employee_copy;
+
+DROP TABLE member;
+CREATE TABLE member(
+member_id VARCHAR(20) PRIMARY KEY,
+member_pwd VARCHAR(20),
+member_name VARCHAR(20)
+
+);
+SELECT*FROM member;
